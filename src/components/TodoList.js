@@ -10,17 +10,18 @@ const ToDoDiv = styled.div`
     margin: 0 20%;
 `
 
-const ToDoList = props => {
-    const {toggleTask, toDo} = props
-    return(
-        <ToDoDiv>
-            {toDo.map(task => {
-                return(
-                    <ToDo task={task} toggleTask={toggleTask} key={task.id}/>
-                )
-            })}
-        </ToDoDiv>
-    )
+class ToDoList extends React.Component {
+    render(){
+        return(
+            <ToDoDiv>
+                {this.props.toDo.map(task => {
+                    return(
+                        <ToDo task={task} toggleTask={this.props.toggleTask} key={task.id}/>
+                    )
+                })}
+            </ToDoDiv>
+        );
+    }
 }
 
 export default ToDoList

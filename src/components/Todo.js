@@ -14,16 +14,17 @@ const TaskDiv = styled.div`
     margin: 1% 0;
 `
 
-const ToDo = props => {
-    const {task} = props
-    return (
-        <TaskDiv
-            onClick={() => props.toggleTask(task.id)}
-            className={`task ${task.completed ? 'completed': ''}`}
-        >
-            <p>{task.name}</p>
-        </TaskDiv>
-    );
+class ToDo extends React.Component {
+    render() {
+        return (
+            <TaskDiv
+                onClick={() => this.props.toggleTask(this.props.task.id)}
+                className={`task ${this.props.task.completed ? 'completed': ''}`}
+            >
+                <p>{this.props.task.name}</p>
+            </TaskDiv>
+        );
+    }
 };
 
 export default ToDo
