@@ -36,7 +36,7 @@ class App extends React.Component {
       completed: false
     };
     this.setState({
-      toDo: [...this.state.toDo, newTask]
+      toDo: [ newTask,...this.state.toDo]
     })
   }
 
@@ -55,8 +55,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <ToDoList toggleTask={this.toggleTask} toDo={this.state.toDo}/>
         <ListForm addTask={this.addTask} deleteCompleted={this.deleteCompleted}/>
+        <ToDoList toggleTask={this.toggleTask} toDo={this.state.toDo}/>
       </div>
     );
   }
