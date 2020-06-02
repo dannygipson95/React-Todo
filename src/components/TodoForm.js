@@ -22,6 +22,12 @@ const FormDiv = styled.div`
         font-size: 1.8rem;
         border-radius: 5px;
         margin: 0 2%;
+
+        &:focus{
+            outline: none;
+            border: 2px solid cornflowerblue;
+            border-radius: 5px;
+        }
     }
 `
 
@@ -42,15 +48,23 @@ class ListForm extends React.Component {
 
     submitHandler = event =>{
         event.preventDefault();
-        this.props.addTask(this.state.task);
-        this.setState({
-            task: ''
-        });
+        if(!this.state.task.trim()){
+            this.setState({
+                task: ''
+            });
+        }else{
+            this.props.addTask(this.state.task);
+            this.setState({
+                task: ''
+            });
+        }
+        
     };
 
     deleteHandler = event =>{
         event.preventDefault();
-        this.props.deleteCompleted();
+            this.props.deleteCompleted();
+        
     }
 
     render() {
