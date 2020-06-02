@@ -2,6 +2,25 @@ import React from 'react';
 import {v4} from 'uuid';
 import ListForm from './components/TodoForm'
 import ToDoList from './components/TodoList'
+import styled from 'styled-components'
+
+const GlobalDiv = styled.div`
+  font-size: 62.5%;
+  height: 100%;
+  margin: 0;
+  background: white;
+
+
+  h1{
+    font-size: 4rem;
+    color: white;
+    background: #005691;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid #005691;
+    margin-top: 0;
+  }
+`
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -54,10 +73,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <GlobalDiv>
+        <h1>My To Do List</h1>
         <ListForm addTask={this.addTask} deleteCompleted={this.deleteCompleted}/>
         <ToDoList toggleTask={this.toggleTask} toDo={this.state.toDo}/>
-      </div>
+      </GlobalDiv>
     );
   }
 }
